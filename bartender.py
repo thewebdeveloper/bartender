@@ -46,3 +46,12 @@ def make_drink(preferences):
 
 if __name__ == '__main__':
 	print(make_drink(ask_for_drink()))
+	drinking = True
+	while drinking:
+		another_drink = input("Do you want another drink?")
+		if another_drink == 'yes' or another_drink == 'y':
+			print(make_drink(ask_for_drink()))
+		else:
+			print("Thanks! Please come again!")
+			drinking = False
+		
