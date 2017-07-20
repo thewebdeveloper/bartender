@@ -16,6 +16,8 @@ ingredients = {
 	"fruity": ["slice of orange", "dash of cassis", "cherry on top"],
 }
 
+customer = {}
+
 def ask_for_drink():
 	'''
 	This function asks the pirates for thier styles in drinks, and thier answer 'yes' or 'no' will define thier styles.
@@ -44,13 +46,23 @@ def make_drink(preferences):
 	return drink
 
 
+def add_customer(name, preferences):
+	'''
+	adding the customer name, and save thier drink preferences
+	'''
+	customer[name] = preferences
+	return customer
+
+
 if __name__ == '__main__':
-	print(make_drink(ask_for_drink()))
+	name = input("What is your name Pirate?")
+	print(add_customer(name, make_drink(ask_for_drink())))
+	
 	drinking = True
 	while drinking:
-		another_drink = input("Do you want another drink?")
+		another_drink = input("Do you want another drink? (Hint: Answer 'yes' or 'y')")
 		if another_drink == 'yes' or another_drink == 'y':
-			print(make_drink(ask_for_drink()))
+			print(customer[name])
 		else:
 			print("Thanks! Please come again!")
 			drinking = False
